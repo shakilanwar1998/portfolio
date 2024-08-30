@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Project One",
+        "description": "Description of project one",
+        "details": "Detailed information about project one."
+    },
+    {
+        "title": "Project Two",
+        "description": "Description of project two",
+        "details": "Detailed information about project two."
+    }
+]

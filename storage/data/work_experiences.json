@@ -1,0 +1,12 @@
+[
+    {
+        "company": "Company A",
+        "role": "Software Developer",
+        "duration": "2022 - Present"
+    },
+    {
+        "company": "Company B",
+        "role": "Intern",
+        "duration": "2021 - 2022"
+    }
+]

@@ -2,37 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PortfolioController extends Controller
 {
     public function home()
     {
-        $data = json_decode(file_get_contents(storage_path('data/home.json')), true);
-        return view('home', compact('data'));
+        return view('home');
     }
 
-    public function workExperiences()
+    public function work()
     {
-        $data = json_decode(file_get_contents(storage_path('data/work_experiences.json')), true);
-        return view('work_experiences', compact('data'));
+        $workExperiences = json_decode(File::get(storage_path('data/work.json')), true);
+        return view('work', ['workExperiences' => $workExperiences]);
     }
 
     public function projects()
     {
-        $data = json_decode(file_get_contents(storage_path('data/projects.json')), true);
-        return view('projects', compact('data'));
+        $projects = json_decode(File::get(storage_path('data/projects.json')), true);
+        return view('projects', ['projects' => $projects]);
     }
 
     public function projectDetails($id)
     {
-        $projects = json_decode(file_get_contents(storage_path('data/projects.json')), true);
-        $project = $projects[$id] ?? null;
-
-        if (!$project) {
-            abort(404, 'Project not found');
-        }
-
-        return view('project_details', compact('project'));
+        $projects = json_decode(File::get(storage_path('data/projects.json')), true);
+        $project = collect($projects)->firstWhere('id', $id);
+        return view('project_details', ['project' => $project]);
     }
 }

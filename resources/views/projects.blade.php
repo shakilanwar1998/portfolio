@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Projects</title>
-</head>
-<body>
-<h1>Projects</h1>
-<ul>
-    @foreach($data as $index => $project)
-        <li><a href="{{ route('project-details', $index) }}">{{ $project['title'] }}</a></li>
+@extends('layout')
+
+@section('title', 'Projects')
+
+@section('content')
+    <h1>My Projects</h1>
+    @foreach ($projects as $project)
+        <div>
+            <h2><a href="{{ route('project.details', $project['id']) }}">{{ $project['name'] }}</a></h2>
+            <p>{{ $project['description'] }}</p>
+        </div>
     @endforeach
-</ul>
-</body>
-</html>
+@endsection

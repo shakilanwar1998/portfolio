@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-<h1>{{ $data['name'] }}</h1>
-<p>{{ $data['description'] }}</p>
-</body>
-</html>
+@extends('layout')
+
+@section('title', 'Home')
+
+@section('content')
+    <h1>Welcome to My Portfolio</h1>
+@endsection
